@@ -7,6 +7,10 @@ carries the licence of each one that may be present.
 
   Library             Used by               Licence        File here
   OpenSSL 3           ssl, hashlib          Apache-2.0     openssl-LICENSE.txt (OpenSSL 3.0)
+  OpenSSL 1.1.1       ssl, hashlib (Linux)  OpenSSL and    openssl-1.1-LICENSE.txt (AlmaLinux 8's
+                                            SSLeay         openssl-libs-1.1.1k)
+  mpdecimal           decimal               BSD-2-Clause   mpdecimal-LICENSE.txt (AlmaLinux 8's
+                                                           mpdecimal-2.5.1)
   Expat               pyexpat               MIT            expat-COPYING (2.6.1)
   libffi              ctypes                MIT            libffi-LICENSE (3.4.6)
   zlib                zlib                  Zlib           zlib-LICENSE (1.3.1)

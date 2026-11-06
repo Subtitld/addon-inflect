@@ -61,6 +61,9 @@ RULES = [
     (r'(\.cpython-3\d+[^/]*\.(so|dylib)|\.pyd)$', 'python/LICENSE.txt', 'CPython extension module', None),
     (r'^libquadmath[-.]', 'libquadmath/COPYING.LIB', 'libquadmath (LGPL)', 'libquadmath'),
     (r'^(libgcc_s|libstdc\+\+|libgfortran|libgomp)[-.]', 'gcc-runtime/COPYING.RUNTIME', 'GCC runtime', None),
+    # OpenSSL 1.1.1 (the AlmaLinux 8 build's) is under the OpenSSL and SSLeay
+    # licences; OpenSSL 3 under Apache-2.0.
+    (r'^(libssl|libcrypto)\.so\.1\.1', 'python-runtime-libs/openssl-1.1-LICENSE.txt', 'OpenSSL 1.1.1', None),
     (r'^(libssl|libcrypto)[-.\d]', 'python-runtime-libs/openssl-LICENSE.txt', 'OpenSSL', None),
     (r'^libffi[-.\d]', 'python-runtime-libs/libffi-LICENSE', 'libffi', None),
     (r'^libexpat[-.\d]', 'python-runtime-libs/expat-COPYING', 'Expat', None),
