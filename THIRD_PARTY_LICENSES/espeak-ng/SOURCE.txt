@@ -1,0 +1,25 @@
+espeak-ng 1.52.0 — GPL-3.0-or-later (COPYING)
+
+The archive carries espeak-ng's shared library and its American English data
+(phontab, phonindex, phondata, intonations, en_dict, lang/gmw/en-US) in
+bin/_internal/inflect_addon/espeak/. The add-on calls it through ctypes to
+turn text into phonemes, and so is itself GPL-3.0-or-later.
+
+Revision: commit 4870adfa25b1a32b4361592f1be8a40337c58d6c (tag 1.52.0),
+https://github.com/espeak-ng/espeak-ng
+
+  * Linux: compiled from that commit by tools/build_espeak.sh, in the
+    AlmaLinux 8 build container, with espeakng-loader's CMake options plus
+    -DUSE_LIBSONIC=OFF -DCMAKE_POSITION_INDEPENDENT_CODE=ON.
+  * macOS and Windows: the library and data of the espeakng-loader 0.2.4 wheel
+    (https://github.com/thewh1teagle/espeakng-loader, MIT), which builds the
+    same commit with its build.sh.
+
+Its source tree also carries COPYING.APACHE, COPYING.BSD2 (getopt.c, used on
+Windows) and COPYING.UCD (the Unicode character database tables); all are
+here.
+
+Complete corresponding source: inflect-<version>-source.tar.gz, attached to
+the same GitHub release as this archive (tools/build_source_tarball.py). It
+holds espeak-ng at that commit, espeakng-loader's build scripts, num2words,
+and the add-on's own source and build files.

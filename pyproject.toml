@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "subtitld-addon-inflect"
+version = "26.11.1"
+description = "Subtitld add-on: offline English text-to-speech with Inflect v2"
+readme = "README.md"
+license = { text = "GPL-3.0-or-later" }
+authors = [{ name = "Subtitld", email = "jbopen@gmail.com" }]
+requires-python = ">=3.10"
+
+# ONNX Runtime runs upstream's ONNX export; numpy does the rest of the maths;
+# num2words spells numbers for the text normalizer; espeak-ng (called through
+# ctypes, see inflect_addon/espeak.py) makes the phonemes. The Linux build
+# compiles espeak-ng itself (tools/build_espeak.sh); elsewhere it comes from
+# the espeakng-loader wheel.
+dependencies = [
+    "onnxruntime==1.31.0",
+    "numpy>=1.26,<3",  # constraints.txt pins the release build
+    "num2words==0.5.14",
+    "espeakng-loader==0.2.4",
+]
+
+[project.optional-dependencies]
+build = ["pyinstaller>=6.10"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+inflect-addon = "inflect_addon.__main__:main"
+
+[tool.setuptools]
+packages = ["inflect_addon"]
+
+[tool.setuptools.package-data]
+inflect_addon = ["pins.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["model: needs an Inflect model (downloads 16-38 MB on first run)"]

@@ -1,0 +1,97 @@
+{
+  "manifest_version": 1,
+  "id": "inflect",
+  "version": "26.11.1",
+  "display_name": "Inflect (offline, lightweight English)",
+  "summary": "Inflect v2: natural American English speech at 24 kHz from a model of under 10M parameters. Runs on the CPU, many times faster than real time. Two voices: Micro (best quality, 38 MB) and Nano (16 MB, faster); each downloads the first time it speaks. English only.",
+  "author": "Subtitld",
+  "homepage": "https://github.com/Subtitld/addon-inflect",
+  "license": "GPL-3.0-or-later (add-on, because it bundles espeak-ng, GPL-3.0-or-later); Inflect v2 weights Apache-2.0",
+  "executable": "bin/inflect-addon",
+  "protocol": 1,
+  "startup_timeout_sec": 30,
+  "platforms": [
+    "linux",
+    "macos",
+    "windows"
+  ],
+  "tasks": [
+    "tts.synthesize"
+  ],
+  "compute": "cpu",
+  "voice_clone": false,
+  "languages": [
+    "en-us"
+  ],
+  "voices": [
+    {
+      "id": "inflect-micro",
+      "language": "en-us",
+      "display_name": "American English man (Inflect Micro, best quality)",
+      "sample_rate": 24000
+    },
+    {
+      "id": "inflect-nano",
+      "language": "en-us",
+      "display_name": "American English man (Inflect Nano, smaller and faster)",
+      "sample_rate": 24000
+    }
+  ],
+  "models": [
+    {
+      "id": "inflect-micro-v2",
+      "display_name": "Inflect-Micro v2 (9.4M, ONNX)",
+      "repo": "owensong/Inflect-Micro-v2-ONNX",
+      "revision": "91b1ab6432323064ec0e8e9704d92fcecd24855f",
+      "size_mb": 38,
+      "license": "Apache-2.0",
+      "bundled": false,
+      "default": true
+    },
+    {
+      "id": "inflect-nano-v2",
+      "display_name": "Inflect-Nano v2 (4.0M, ONNX)",
+      "repo": "owensong/Inflect-Nano-v2-ONNX",
+      "revision": "df3627e44c26192714c9dcba6b8e9b47e7a6e3d9",
+      "size_mb": 16,
+      "license": "Apache-2.0",
+      "bundled": false
+    }
+  ],
+  "disk_required_mb": 150,
+  "ram_required_mb": 512,
+  "config_schema": {
+    "fields": [
+      {
+        "key": "threads",
+        "type": "int",
+        "label": "CPU threads",
+        "default": 0,
+        "min": 0,
+        "max": 64,
+        "step": 1,
+        "help": "0 picks half the logical processors, at most 8."
+      },
+      {
+        "key": "speed",
+        "type": "number",
+        "label": "Speaking pace",
+        "default": 1.0,
+        "min": 0.5,
+        "max": 2.0,
+        "step": 0.05,
+        "help": "How fast Inflect itself speaks: 1.0 is its natural pace, 1.2 is 20% faster. The dubbing rate slider still stretches the result afterwards."
+      },
+      {
+        "key": "variation",
+        "type": "number",
+        "label": "Variation",
+        "default": 0.667,
+        "min": 0.0,
+        "max": 1.0,
+        "step": 0.05,
+        "help": "How much the delivery varies from take to take: 0 is flat and always the same, higher is livelier. 0.667 is Inflect's default."
+      }
+    ]
+  }
+}

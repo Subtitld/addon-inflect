@@ -1,0 +1,49 @@
+{
+ "text": "Hello there! The quick brown fox, at 3:30 PM, jumps over 12 lazy dogs. Is that right?",
+ "seed": 7,
+ "speed": 1.0,
+ "variation": 0.667,
+ "phonemes": "həlˈoʊ ðˈɛɹ! ðə kwˈɪk bɹˈaʊn fˈɑːks, æt θɹˈiː θˈɜːɾi pˈiː ˈɛm, dʒˈʌmps ˌoʊvɚ twˈɛlv lˈeɪzi dˈɑːɡz. ɪz ðæt ɹˈaɪt?",
+ "onnxruntime": "1.31.1",
+ "phonemizer": "3.6.0",
+ "models": {
+  "micro": {
+   "samples": 169504,
+   "source": {
+    "format": "inflect_v2_onnx_source_v1",
+    "model": "Inflect-Micro-v2",
+    "source_repository": "owensong/Inflect-Micro-v2",
+    "source_revision": "3e8c567f9bce1a309eea12d38ca9fbf7050df72e",
+    "source_model_file": "model.pth",
+    "source_model_sha256": "3eede065c9ccfa88ade0a5a9a5c23de34afcbbb32213e59aad44d5cf100fdee8",
+    "conversion_repository": "https://github.com/robertbak/webtts-inflect",
+    "conversion_commit": "60832b1978115e4ed7fdddce4d9b9fd9161f9fe7",
+    "conversion_author": "Robert Bak",
+    "official_packaging": "Owen Song",
+    "precision": "FP32",
+    "onnx_opset": 17,
+    "sample_rate_hz": 24000,
+    "license": "Apache-2.0"
+   }
+  },
+  "nano": {
+   "samples": 171552,
+   "source": {
+    "format": "inflect_v2_onnx_source_v1",
+    "model": "Inflect-Nano-v2",
+    "source_repository": "owensong/Inflect-Nano-v2",
+    "source_revision": "67fc9249e0bb8ab4b196d25cb09b6dd43f5e4f13",
+    "source_model_file": "model.pth",
+    "source_model_sha256": "bfca468489c9069361d6b87b295a17eef611af8ff09854ce0b80305d9122f5b3",
+    "conversion_repository": "https://github.com/robertbak/webtts-inflect",
+    "conversion_commit": "60832b1978115e4ed7fdddce4d9b9fd9161f9fe7",
+    "conversion_author": "Robert Bak",
+    "official_packaging": "Owen Song",
+    "precision": "FP32",
+    "onnx_opset": 17,
+    "sample_rate_hz": 24000,
+    "license": "Apache-2.0"
+   }
+  }
+ }
+}
