@@ -123,8 +123,8 @@ a = Analysis(
         # optional imports. Each would bring a native library, and with it a
         # licence to ship. ssl and hashlib stay: the models download over
         # HTTPS and is checked by sha256.
+        # (decimal stays: num2words needs it.)
         'bz2', '_bz2', 'lzma', '_lzma', 'compression', '_zstd',
-        'decimal', '_decimal', '_pydecimal',
         # GPL (readline) and ncurses: for interactive terminals, which the
         # add-on never has.
         'readline', 'curses', '_curses', '_curses_panel',
