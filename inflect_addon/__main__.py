@@ -540,7 +540,9 @@ def _self_test() -> int:
         'sha256': hashlib.sha256(b'').hexdigest()[:8],
         'ca_bundle': os.environ.get('SSL_CERT_FILE', ''),
     }
-    print(json.dumps(report, ensure_ascii=False), file=sys.__stdout__, flush=True)
+    # Bytes, not print(): a Windows console's code page cannot encode the IPA.
+    sys.__stdout__.buffer.write((json.dumps(report, ensure_ascii=False) + '\n').encode('utf-8'))
+    sys.__stdout__.flush()
     return 0 if ok else 1
 
 

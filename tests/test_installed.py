@@ -74,7 +74,7 @@ def test_version():
 
 
 def test_self_test_phonemizes_and_runs_onnx():
-    out = subprocess.run([BINARY, '--self-test'], capture_output=True, text=True, timeout=300)
+    out = subprocess.run([BINARY, '--self-test'], capture_output=True, text=True, encoding='utf-8', timeout=300)
     assert out.returncode == 0, out.stderr[-2000:]
     report = json.loads(out.stdout.strip().splitlines()[-1])
     assert report['ok'] is True and report['espeak_bundled'] is True and report['espeak'] == '1.52.0'
