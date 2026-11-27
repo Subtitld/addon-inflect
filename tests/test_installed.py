@@ -16,6 +16,7 @@ from __future__ import annotations
 import json
 import os
 import subprocess
+import sys
 import threading
 import wave
 from pathlib import Path
@@ -77,7 +78,9 @@ def test_self_test_phonemizes_and_runs_onnx():
     out = subprocess.run([BINARY, '--self-test'], capture_output=True, text=True, encoding='utf-8', timeout=300)
     assert out.returncode == 0, out.stderr[-2000:]
     report = json.loads(out.stdout.strip().splitlines()[-1])
-    assert report['ok'] is True and report['espeak_bundled'] is True and report['espeak'] == '1.52.0'
+    # On Haiku espeak-ng is the espeakng_loader_python3.14 package, not a bundled copy.
+    bundled = not sys.platform.startswith('haiku')
+    assert report['ok'] is True and report['espeak_bundled'] is bundled and report['espeak'] == '1.52.0'
 
 
 def test_speaks_with_each_voice_then_cancels(tmp_path):

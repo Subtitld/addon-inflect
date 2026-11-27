@@ -1,0 +1,6 @@
+# Pure-Python packages the Haiku zip carries in bin/lib (tools/build_haiku.py),
+# at the versions constraints.txt pins. numpy, ONNX Runtime and espeak-ng (in
+# espeakng-loader) have native code and come from the Haiku packages
+# manifest.json lists instead. docopt is left out: only num2words' command-line
+# script imports it, and it has no wheel.
+num2words==0.5.14
