@@ -1,7 +1,7 @@
 {
   "manifest_version": 1,
   "id": "inflect",
-  "version": "26.11.1",
+  "version": "26.11.2",
   "display_name": "Inflect (offline, lightweight English)",
   "summary": "Inflect v2: natural American English speech at 24 kHz from a model of under 10M parameters. Runs on the CPU, many times faster than real time. Two voices: Micro (best quality, 38 MB) and Nano (16 MB, faster); each downloads the first time it speaks. English only.",
   "author": "Subtitld",

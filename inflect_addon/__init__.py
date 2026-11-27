@@ -8,6 +8,6 @@ The package exists so the entry point can run both from source
 (`bin/inflect-addon`).
 """
 
-__version__ = '26.11.1'
+__version__ = '26.11.2'
 ADDON_ID = 'inflect'
 PROTOCOL_VERSION = 1

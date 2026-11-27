@@ -71,7 +71,7 @@ class Addon:
 
 def test_version():
     out = subprocess.run([BINARY, '--version'], capture_output=True, text=True, timeout=60)
-    assert out.returncode == 0 and out.stdout.strip() == 'inflect-addon 26.11.1'
+    assert out.returncode == 0 and out.stdout.strip() == 'inflect-addon 26.11.2'
 
 
 def test_self_test_phonemizes_and_runs_onnx():

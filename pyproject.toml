@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "subtitld-addon-inflect"
-version = "26.11.1"
+version = "26.11.2"
 description = "Subtitld add-on: offline English text-to-speech with Inflect v2"
 readme = "README.md"
 license = { text = "GPL-3.0-or-later" }
