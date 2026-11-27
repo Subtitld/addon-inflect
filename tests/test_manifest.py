@@ -34,7 +34,9 @@ def test_manifest_lists_what_the_code_offers():
     assert MANIFEST['tasks'] == ['tts.synthesize']
     assert MANIFEST['compute'] == 'cpu'
     assert MANIFEST['executable'] == 'bin/inflect-addon'
-    assert set(MANIFEST['platforms']) == {'linux', 'macos', 'windows'}
+    assert set(MANIFEST['platforms']) == {'linux', 'macos', 'windows', 'haiku'}
+    assert MANIFEST['haiku_packages'] == ['python3.14', 'numpy_python3.14', 'onnxruntime_python3.14',
+                                          'espeakng_loader_python3.14']
     assert MANIFEST['license'].startswith('GPL-3.0-or-later')
     keys = {f['key']: f for f in MANIFEST['config_schema']['fields']}
     assert set(keys) == {'threads', 'speed', 'variation'}
